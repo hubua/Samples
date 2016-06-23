@@ -13,6 +13,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternSingleton", "Pattern
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDB", "AsyncDB\AsyncDB.csproj", "{217C885F-00E4-45C1-AB90-6F937D26282B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grpc", "grpc", "{2EB743B0-7E81-4A26-838E-0E5984887EF2}"
+	ProjectSection(SolutionItems) = preProject
+		readme.txt = readme.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{213CFDE3-C9FD-47C6-866D-B0E29D37C014}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Async", "Async", "{E277043B-D846-4C9E-AFD6-F1D010EB24A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +51,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{54067E4B-5B80-447C-90CB-6E899EF3D005} = {E277043B-D846-4C9E-AFD6-F1D010EB24A0}
+		{9E4BC8CC-DCA2-4F35-A0FB-FE41E68C4318} = {213CFDE3-C9FD-47C6-866D-B0E29D37C014}
+		{88BCC0E0-AAF1-4283-BDAA-F402F6B8D0DD} = {213CFDE3-C9FD-47C6-866D-B0E29D37C014}
+		{6AFD233E-E195-431D-A0F2-C012F95BA170} = {213CFDE3-C9FD-47C6-866D-B0E29D37C014}
+		{217C885F-00E4-45C1-AB90-6F937D26282B} = {E277043B-D846-4C9E-AFD6-F1D010EB24A0}
 	EndGlobalSection
 EndGlobal
