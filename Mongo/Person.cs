@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Mongo
         public string Address { get; set; }
         [BsonIgnoreIfNull]
         public IList<PhoneNumber> PhoneNumbers { get; set; }
-        [BsonExtraElements]
+        // [BsonExtraElements]
         public BsonDocument Metadata { get; set; }
     }
 
@@ -34,6 +35,18 @@ namespace Mongo
         Home,
         Work,
         Mobile
+    }
+
+    public static class ClassMapper
+    {
+        public static void Initialize()
+        {
+            BsonClassMap.RegisterClassMap<Person>(cm =>
+            {
+                cm.AutoMap();
+                cm.MapExtraElementsMember(c => c.Metadata);
+            });
+        }
     }
 
     public static class Generator
