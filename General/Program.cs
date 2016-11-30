@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace General
 {
-    /*
-     * https://blogs.msdn.microsoft.com/pfxteam/2011/09/28/task-exception-handling-in-net-4-5/
-     */
-     
+         
     class Program
     {
         static void pause()
@@ -47,9 +44,17 @@ namespace General
         {
             Console.WriteLine("S4 started");
             pause();
-            int n = await Task.Factory.StartNew(() => { Console.WriteLine("S4 running"); pause(); return 1; });
+            int n = await Task.Run(() => { Console.WriteLine("S4 running"); pause(); return 1; });
             Console.WriteLine("S4 complete");
             return n;
+        }
+
+        static async Task<int> sampleNamed(string name)
+        {
+            Console.WriteLine($"{name} started");
+            await Task.Delay(3000);
+            Console.WriteLine($"{name} complete");
+            return 1;
         }
 
 
@@ -80,8 +85,9 @@ namespace General
             }
 
             Task.WaitAll(sample3(), sample4());
-            
 
+           
+            Task.WaitAll(sampleNamed("SN1"), sampleNamed("SN2"));
         }
     }
 }
