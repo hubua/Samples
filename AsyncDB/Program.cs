@@ -11,18 +11,6 @@ using System.Threading.Tasks;
 namespace AsyncDB
 {
 
-    /*
-    
-        EF http://msdn.com/data/ef
-    
-
-        Multiple repositories and UoW http://www.asp.net/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
-    
-        Not quite http://stackoverflow.com/questions/28543293/entity-framework-async-operation-takes-ten-times-as-long-to-complete
-
-        Do not use proxies
-        Use SQL stored procedures
-    */
     class Program
     {
         private static SqlConnection GetOpenSQLConnection()
