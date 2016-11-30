@@ -1,8 +1,8 @@
-﻿# AsyncDB
+# AsyncDB
 Using Entity Framework asynchronousely
 
-[] Do not use proxies
-[] Use SQL stored procedures
+[ ] Do not use proxies
+[ ] Use SQL stored procedures
 
 ## Links & Docs
 
