@@ -83,6 +83,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201601221431148_Init.resx">
