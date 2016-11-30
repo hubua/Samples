@@ -77,7 +77,7 @@ namespace AsyncDB
             const int BIG_BLOG_1_ID = 1;
             const int BIG_BLOG_2_ID = 2;
             const int BIG_BLOG_3_ID = 3;
-            const int RANDOM_POST_ID = 10;
+            
             const string RANDOM_POST_TITLE = "Post #10";
 
             System.Diagnostics.Stopwatch sw;
@@ -169,8 +169,6 @@ namespace AsyncDB
             }
 
             #endregion
-
-            return;
 
             Console.WriteLine(new String('*', 10));
 

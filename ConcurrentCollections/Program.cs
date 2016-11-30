@@ -31,7 +31,7 @@ namespace ConcurrentCollections
 
             var rnd = new Random(worker.GetHashCode());
             var start = DateTime.Now;
-            var length = new TimeSpan(0, 0, 1);
+            var length = TimeSpan.FromSeconds(1);
             while (DateTime.Now - start < length)
             {
                 Thread.Sleep(rnd.Next(100));
