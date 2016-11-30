@@ -63,6 +63,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="primer-dataset.json" />
+    <None Include="readme.md" />
     <None Include="sample_data.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
