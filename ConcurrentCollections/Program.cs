@@ -8,11 +8,7 @@ using System.Threading.Tasks;
 
 namespace ConcurrentCollections
 {
-    /*
-     * http://www.codeguru.com/csharp/article.php/c20229/Working-with-Concurrent-Collections-in-NET-Framework-40.htm
-     * https://msdn.microsoft.com/en-us/library/dd997373(v=vs.110).aspx
-     * https://referencesource.microsoft.com/#mscorlib/system/collections/queue.cs
-     */
+
     class Program
     {
         static void PlaceOrder(ConcurrentQueue<string> queue, string worker)

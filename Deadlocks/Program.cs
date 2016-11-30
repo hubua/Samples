@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace Deadlocks
 {
-    /*
-     * http://blog.drorhelper.com/2015/12/did-you-know-visual-studio-can-show.html
-     * http://www.interact-sw.co.uk/iangblog/2004/04/26/yetmoretimedlocking
-     */
+
     class Program
     {
         static void Main(string[] args)
