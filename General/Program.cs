@@ -10,84 +10,105 @@ namespace General
          
     class Program
     {
+
+        static void Log(string message)
+        {
+            System.Diagnostics.Debug.WriteLine(message);
+            Console.WriteLine(message);
+        }
+
         static void pause()
         {
             Thread.Sleep(200);
         }
 
-        static Task sample1()
+        static Task sampleNonAsync(int id)
         {
             // Syncronously running code
-            Console.WriteLine("S1 initializing");
-            var t = new Task(() => { pause(); Console.WriteLine("S1 done"); });
+            Log($"NonAsyncSample{id} initializing");
+            var t = new Task(() => { pause(); Log($"NonAsyncSample{id} done"); });
             return t;
         }
 
-        static Task sample2()
+        static async Task<int> sampleAsync(int id)
         {
-            // Syncronously running code
-            Console.WriteLine("S2 initializing");
-            var t = new Task(() => { pause(); Console.WriteLine("S2 done"); });
-            return t;
+            Log($"AsyncSample{id} started");
+            await Task.Delay(id * 100);
+            Log($"AsyncSample{id} complete");
+            return id;
         }
 
-        static async Task<int> sample3()
+        static async Task<int> sampleTaskFactoryStartNew()
         {
-            Console.WriteLine("S3 started");
+            Console.WriteLine("TaskFactoryStartNewSample started");
             pause();
-            int n = await Task.Factory.StartNew(() => { Console.WriteLine("S3 running"); pause(); return 1; });
-            Console.WriteLine("S3 complete");
+            int n = await Task.Factory.StartNew(() => { Console.WriteLine("TaskFactoryStartNewSample running"); pause(); return 1; });
+            Console.WriteLine("TaskFactoryStartNewSample complete");
             return n;
         }
 
-        static async Task<int> sample4()
+        static async Task<int> sampleTaskRun()
         {
-            Console.WriteLine("S4 started");
+            Console.WriteLine("TaskRunSample started");
             pause();
-            int n = await Task.Run(() => { Console.WriteLine("S4 running"); pause(); return 1; });
-            Console.WriteLine("S4 complete");
+            int n = await Task.Run(() => { Console.WriteLine("TaskRunSample running"); pause(); return 1; });
+            Console.WriteLine("TaskRunSample complete");
             return n;
         }
-
-        static async Task<int> sampleNamed(string name)
-        {
-            Console.WriteLine($"{name} started");
-            await Task.Delay(3000);
-            Console.WriteLine($"{name} complete");
-            return 1;
-        }
-
-
+        
         static void Main(string[] args)
         {
-            var t1 = sample1();
-            var t2 = sample2();
-            t1.Start(); // Tasks starting in parrallel
-            t2.Start(); // Tasks starting in parrallel
-            Console.WriteLine("samples started");
+            // NonAsync tasks execution
+
+            var t1 = sampleNonAsync(1);
+            var t2 = sampleNonAsync(2);
+            t1.Start(); // Execution starting in parrallel
+            t2.Start();
+            Log("NonAsync task samples started");
             Task.WaitAll(new[] { t1, t2 });
 
+            Console.WriteLine();
 
-            var te1 = Task.Factory.StartNew(() => { Console.WriteLine("generating exception 1"); throw new ApplicationException("some exception 1"); });
-            var te2 = Task.Factory.StartNew(() => { Console.WriteLine("generating exception 2"); throw new ApplicationException("some exception 2"); });
-            var te3 = Task.Factory.StartNew(() => { Console.WriteLine("not generating exception"); });
+            // Async tasks execution
+
+            var a = sampleAsync(20); // Execution starts as soon as async method is invoked
+            var b = sampleAsync(10);
+            var ar = a.Result;
+            var br = b.Result;
+            Log($"Async Result: {ar}, {br}");
+
+            var sdr = Task.WhenAll(sampleAsync(40), sampleAsync(30)).Result;
+            foreach (var item in sdr)
+            {
+                Log($"Async WhenAll: {item}");
+            }
+
+            Console.WriteLine();
+
+            // Advanced Async tasks execution
+
+            Task.WaitAll(sampleTaskFactoryStartNew(), sampleTaskRun());
+
+            Console.WriteLine();
+
+            // Unobsereved exceptions
+
+            var te1 = Task.Factory.StartNew(() => { Log("generating exception 1"); throw new ApplicationException("some exception 1"); });
+            var te2 = Task.Factory.StartNew(() => { Log("generating exception 2"); throw new ApplicationException("some exception 2"); });
+            var te3 = Task.Factory.StartNew(() => { Log("not generating exception"); });
             try
             {
                 Task.WaitAll(new[] { te1, te2, te3 });
             }
             catch (AggregateException ex)
             {
-                Console.WriteLine($"EXCEPTION: {ex.Message}");
+                Log($"EXCEPTION: {ex.Message}");
                 foreach (var iex in ex.InnerExceptions)
                 {
-                    Console.WriteLine($"INNER EXCEPTION: {iex.Message}");
+                    Log($"INNER EXCEPTION: {iex.Message}");
                 }
             }
-
-            Task.WaitAll(sample3(), sample4());
-
-           
-            Task.WaitAll(sampleNamed("SN1"), sampleNamed("SN2"));
+            
         }
     }
 }
