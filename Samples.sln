@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDB", "AsyncDB\AsyncDB.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grpc", "grpc", "{2EB743B0-7E81-4A26-838E-0E5984887EF2}"
 	ProjectSection(SolutionItems) = preProject
-		readme.txt = readme.txt
+		grpc.md = grpc.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{213CFDE3-C9FD-47C6-866D-B0E29D37C014}"
@@ -31,6 +31,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "General", "General\General.csproj", "{ED6B6CD0-9CA3-422E-98C5-DC63D75E4A0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncREST", "AsyncREST\AsyncREST.csproj", "{54067E4B-5B80-447C-90CB-6E899EF3D005}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ASP.NET Core", "ASP.NET Core", "{36F0F067-4CFF-4883-87E9-0242C4279E7F}"
+	ProjectSection(SolutionItems) = preProject
+		aspnetcore.md = aspnetcore.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
