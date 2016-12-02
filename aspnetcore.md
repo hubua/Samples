@@ -18,8 +18,8 @@
 * configure firewall
   * add rules for HTTP, HTTPS, port 80
 * install nginx
-
-/etc/nginx/conf.d/default.conf
+* update `/etc/nginx/conf.d/default.conf`
+```
 # For more information on configuration, see:
 #   * Official English Documentation: http://nginx.org/en/docs/
 #   * Official Russian Documentation: http://nginx.org/ru/docs/
@@ -41,5 +41,5 @@
         proxy_cache_bypass $http_upgrade;
             }
     }
-
-restart nginx (nginx -s stop / nginx)
+```
+* restart nginx (nginx -s stop / nginx)
