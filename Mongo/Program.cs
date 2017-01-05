@@ -16,20 +16,32 @@ namespace Mongo
             var database = client.GetDatabase("sample");
             var collection = database.GetCollection<BsonDocument>("restaraunts");
 
+            database.DropCollection("Persons");
+
             var persons = new List<Person>()
             {
-                Generator.GeneratePerson(),
-                Generator.GeneratePerson(),
-                Generator.GeneratePerson(),
+                Generator.GeneratePerson<Person>("Diving"),
+                Generator.GeneratePerson<Person>("Diving"),
+                Generator.GeneratePerson<Person>("Singing"),
+                Generator.GeneratePerson<Employee>("Serios Co"),
+                Generator.GeneratePerson<Artist>("Music"),
+                Generator.GeneratePerson<Artist>("Music"),
+                Generator.GeneratePerson<Artist>("Painting"),
             };
             var person1 = persons[0];
 
             var collectionPerson = database.GetCollection<Person>("Persons");
+            
             collectionPerson.InsertMany(persons);
 
-            //var filter = Builders<Person>.Filter.Eq("UID", person1.UID);
-            //var r = collectionPerson.Find(filter).First();
-            
+            var c = collectionPerson.Count(new BsonDocument("Art", "Music")); // 2
+            c = collectionPerson.Count(x => x.UID == person1.UID); // 1
+
+            var filter = new BsonDocument();
+            var all = collectionPerson.Find(filter).ToList();
+
+            var artists = collectionPerson.AsQueryable().OfType<Person>();
+
             var r = collectionPerson.Find(item => item.UID == person1.UID).First();
 
 

@@ -9,6 +9,20 @@ using System.Threading.Tasks;
 
 namespace Mongo
 {
+    public enum PhoneType
+    {
+        Home,
+        Work,
+        Mobile
+    }
+
+    public class PhoneNumber
+    {
+        public string Number { get; set; }
+        public PhoneType PhoneType { get; set; }
+    }
+    
+    // [BsonKnownTypes(typeof(Employee), typeof(Artist))]
     public class Person
     {
         public Guid UID { get; set; }
@@ -24,17 +38,14 @@ namespace Mongo
         public BsonDocument Metadata { get; set; }
     }
 
-    public class PhoneNumber
+    public class Employee : Person
     {
-        public string Number { get; set; }
-        public PhoneType PhoneType { get; set; }
+        public string Company { get; set; }
     }
 
-    public enum PhoneType
+    public class Artist : Person
     {
-        Home,
-        Work,
-        Mobile
+        public string Art { get; set; }
     }
 
     public static class ClassMapper
@@ -45,46 +56,11 @@ namespace Mongo
             {
                 cm.AutoMap();
                 cm.MapExtraElementsMember(c => c.Metadata);
+                // cm.SetIsRootClass(true);
             });
-        }
-    }
 
-    public static class Generator
-    {
-        private static IEnumerable<string[]> _sampledata;
-        private static Random _random;
-
-        static Generator()
-        {
-            var samplefile = System.IO.File.ReadAllLines("sample_data.csv");
-            _sampledata = samplefile.Skip(1).Select(item => item.Split(','));
-            _random = new Random((int)DateTime.Now.Ticks);
-        }
-
-        public static Person GeneratePerson()
-        {
-            var row = _sampledata.ToList()[_random.Next(_sampledata.Count())];
-
-            var result = new Person()
-            {
-                UID = Guid.NewGuid(),
-                FirstName = row[0],
-                LastName = row[1],
-                Email = row[2],
-                Address = row[3],
-                Metadata = new BsonDocument("rel", "metatada")
-            };
-
-            for (int i = 0; i < _random.Next(3); i++)
-            {
-                if (result.PhoneNumbers == null)
-                {
-                    result.PhoneNumbers = new List<PhoneNumber>();
-                }
-                result.PhoneNumbers.Add(new PhoneNumber() { Number = $"1 111 {_random.Next(999).ToString("000")}", PhoneType = (PhoneType)_random.Next(2) });
-            }
-            
-            return result;    
+            BsonClassMap.RegisterClassMap<Employee>();
+            BsonClassMap.RegisterClassMap<Artist>();
         }
     }
 
