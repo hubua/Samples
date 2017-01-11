@@ -15,3 +15,6 @@ Accessing MongoDB from .NET
 - Helpers
   - https://robomongo.org/
   - http://www.json-generator.com/
+- Using COMB GUID
+  - http://blog.jongallant.com/2013/04/guid-comb-ef-code-first/
+  - http://www.siepman.nl/blog/post/2013/10/28/ID-Sequential-Guid-COMB-Vs-Int-Identity-using-Entity-Framework.aspx

@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.IdGenerators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace Mongo
     // [BsonKnownTypes(typeof(Employee), typeof(Artist))]
     public class Person
     {
+        public Guid Id { get; set; }
         public Guid UID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -55,6 +57,7 @@ namespace Mongo
             BsonClassMap.RegisterClassMap<Person>(cm =>
             {
                 cm.AutoMap();
+                cm.MapIdMember(c => c.Id).SetIdGenerator(CombGuidGenerator.Instance);
                 cm.MapExtraElementsMember(c => c.Metadata);
                 // cm.SetIsRootClass(true);
             });
