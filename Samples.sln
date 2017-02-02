@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternSingleton", "Pattern
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDB", "AsyncDB\AsyncDB.csproj", "{217C885F-00E4-45C1-AB90-6F937D26282B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grpc", "grpc", "{2EB743B0-7E81-4A26-838E-0E5984887EF2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gRPC", "gRPC", "{2EB743B0-7E81-4A26-838E-0E5984887EF2}"
 	ProjectSection(SolutionItems) = preProject
-		grpc.md = grpc.md
+		gRPC.md = gRPC.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{213CFDE3-C9FD-47C6-866D-B0E29D37C014}"
@@ -34,12 +34,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncREST", "AsyncREST\Asyn
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ASP.NET Core", "ASP.NET Core", "{36F0F067-4CFF-4883-87E9-0242C4279E7F}"
 	ProjectSection(SolutionItems) = preProject
-		aspnetcore.md = aspnetcore.md
+		ASPdotNETCore.md = ASPdotNETCore.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{0AD2F704-E441-406E-AE32-9C445BB119E5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRRealTime", "SignalRRealTime\SignalRRealTime.csproj", "{3138D3DA-BE50-443A-8EA4-1357ED318FC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Redis", "Redis", "{CE1F8EF8-4E33-4C9C-926B-BBF7E525AFBD}"
+	ProjectSection(SolutionItems) = preProject
+		Redis.md = Redis.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
