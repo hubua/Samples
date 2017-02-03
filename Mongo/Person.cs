@@ -28,6 +28,7 @@ namespace Mongo
     {
         public Guid Id { get; set; }
         public Guid UID { get; set; }
+        public int SeqId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         [BsonIgnore]
@@ -59,7 +60,7 @@ namespace Mongo
                 cm.AutoMap();
                 cm.MapIdMember(c => c.Id).SetIdGenerator(CombGuidGenerator.Instance);
                 cm.MapExtraElementsMember(c => c.Metadata);
-                // cm.SetIsRootClass(true);
+                cm.SetIsRootClass(true);
             });
 
             BsonClassMap.RegisterClassMap<Employee>();
