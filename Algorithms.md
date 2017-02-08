@@ -16,6 +16,9 @@ https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
 * Quick sort
   * https://www.youtube.com/watch?v=aQiWF4E8flQ
   * O(n log n)
+  * O(n^2) worst case
+  * Low memory
+  * Not stable
 * Insertion sort
   * https://www.youtube.com/watch?v=DFG-XuyPYUQ
   * O(n^2) worst case
