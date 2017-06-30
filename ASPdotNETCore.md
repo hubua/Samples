@@ -3,6 +3,7 @@
 ## Links & Docs
 
 * https://www.microsoft.com/net/core#centos
+* https://www.nginx.com/resources/wiki/start/topics/tutorials/install/
 * https://blog.kloud.com.au/2016/05/31/building-dotnet-core-application-on-amazon-linux/
 * http://www.hanselman.com/blog/PublishingAnASPNETCoreWebsiteToACheapLinuxVMHost.aspx
 * https://docs.asp.net/en/latest/publishing/linuxproduction.html
