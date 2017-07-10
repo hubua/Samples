@@ -10,6 +10,10 @@
 * http://blog.earth-works.com/2013/04/12/how-to-get-networking-working-in-centos-under-hyper-v/
 * https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/best-practices-for-running-linux-on-hyper-v
 
+### DI
+* https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
+* https://joonasw.net/view/aspnet-core-di-deep-dive
+
 ## How to Install ASP.NET core on Linux
 
 * install SmartTTY or Windows bash shell
