@@ -9,14 +9,13 @@
 * https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run
 * https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction
 * https://www.linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos
-
 * https://blog.kloud.com.au/2016/05/31/building-dotnet-core-application-on-amazon-linux/
-
 * https://docs.asp.net/en/latest/publishing/linuxproduction.html
 * http://blog.earth-works.com/2013/04/12/how-to-get-networking-working-in-centos-under-hyper-v/
 * https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/best-practices-for-running-linux-on-hyper-v
 
 ### DI
+
 * https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
 * https://joonasw.net/view/aspnet-core-di-deep-dive
 
@@ -35,22 +34,44 @@
 #   * Official English Documentation: http://nginx.org/en/docs/
 #   * Official Russian Documentation: http://nginx.org/ru/docs/
 
-    server {
+server {
     listen       80;
-    server_name  172.22.199.136;
-#    root         /root/cwa1/wwwroot;
+    server_name  localhost; # or 172.22.199.136;
 
-# Load configuration files for the default server block.
-#    include /etc/nginx/default.d/*.conf;
-
-        location / {
+    location / {
         proxy_pass http://127.0.0.1:5000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection keep-alive;
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
-            }
     }
+}
 ```
 * restart nginx (nginx -s stop / nginx)
+
+
+## Autostart web application
+
+useradd -M --system dotnetwww
+nano /etc/systemd/system/kestrel-rmp.service
+```
+[Unit]
+Description=RMP Web App
+
+[Service]
+WorkingDirectory=/var/RMP
+ExecStart=/usr/local/bin/dotnet /var/RMP/RMP.WebUI.dll
+Restart=always
+RestartSec=10 # Restart service after 10 seconds if dotnet service crashes
+SyslogIdentifier=dotnet-rmp
+User=dotnetwww
+Environment=ASPNETCORE_ENVIRONMENT=Production
+
+[Install]
+WantedBy=multi-user.target
+```
+
+systemctl daemon-reload
+systemctl start kestrel-rmp.service
+systemctl status kestrel-rmp.service
