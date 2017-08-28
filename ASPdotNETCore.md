@@ -75,3 +75,6 @@ WantedBy=multi-user.target
 systemctl daemon-reload
 systemctl start kestrel-rmp.service
 systemctl status kestrel-rmp.service
+
+## Tips
+find / -name dotnet
