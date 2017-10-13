@@ -55,7 +55,24 @@ namespace General
             Console.WriteLine("TaskRunSample complete");
             return n;
         }
-        
+
+        static async Task<int> sampleTaskRunWithException()
+        {
+            Console.WriteLine("TaskRunSample started");
+            pause();
+            try
+            {
+                int n = await Task.Run(() => { Console.WriteLine("TaskRunSample running"); throw new ApplicationException("some exception"); return 1; });
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            Console.WriteLine("TaskRunSample complete");
+            return 0;
+        }
+
         static void Main(string[] args)
         {
             // NonAsync tasks execution
@@ -108,7 +125,10 @@ namespace General
                     Log($"INNER EXCEPTION: {iex.Message}");
                 }
             }
-            
+
+            // async exception
+
+            sampleTaskRunWithException().Wait();
         }
     }
 }

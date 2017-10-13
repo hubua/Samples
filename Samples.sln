@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity", "Unity\Unity.csproj", "{9E4BC8CC-DCA2-4F35-A0FB-FE41E68C4318}"
 EndProject
@@ -58,6 +58,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JWT", "JWT", "{4188D36F-CA3
 		JWT.md = JWT.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoogleOAuth", "GoogleAuth\GoogleOAuth.csproj", "{8EA0774B-BF51-42A2-B12B-81E55F5886F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{CADA7EB2-F28E-43A8-A18F-010034A81287}"
+	ProjectSection(SolutionItems) = preProject
+		Security.md = Security.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieAuthentication", "CookieAuthentication\CookieAuthentication.csproj", "{43680367-F9B7-4D61-B7AE-38D47BB191A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +113,14 @@ Global
 		{3138D3DA-BE50-443A-8EA4-1357ED318FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3138D3DA-BE50-443A-8EA4-1357ED318FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3138D3DA-BE50-443A-8EA4-1357ED318FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EA0774B-BF51-42A2-B12B-81E55F5886F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA0774B-BF51-42A2-B12B-81E55F5886F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA0774B-BF51-42A2-B12B-81E55F5886F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA0774B-BF51-42A2-B12B-81E55F5886F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43680367-F9B7-4D61-B7AE-38D47BB191A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43680367-F9B7-4D61-B7AE-38D47BB191A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43680367-F9B7-4D61-B7AE-38D47BB191A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43680367-F9B7-4D61-B7AE-38D47BB191A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,5 +139,11 @@ Global
 		{3138D3DA-BE50-443A-8EA4-1357ED318FC2} = {D99376D7-F532-4158-A1B5-67CA0B80AD5E}
 		{D99376D7-F532-4158-A1B5-67CA0B80AD5E} = {0AD2F704-E441-406E-AE32-9C445BB119E5}
 		{4188D36F-CA36-47A8-84EF-1A092D0B2F5F} = {0AD2F704-E441-406E-AE32-9C445BB119E5}
+		{8EA0774B-BF51-42A2-B12B-81E55F5886F3} = {CADA7EB2-F28E-43A8-A18F-010034A81287}
+		{CADA7EB2-F28E-43A8-A18F-010034A81287} = {0AD2F704-E441-406E-AE32-9C445BB119E5}
+		{43680367-F9B7-4D61-B7AE-38D47BB191A9} = {CADA7EB2-F28E-43A8-A18F-010034A81287}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF651502-6BAF-4782-95B0-A12D846B2549}
 	EndGlobalSection
 EndGlobal

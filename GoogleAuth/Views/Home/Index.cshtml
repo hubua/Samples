@@ -1,0 +1,84 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@using Microsoft.AspNetCore.Identity
+@using GoogleAuthSample.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+   
+@inject SignInManager<AppUser> SignInManager
+
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>Login with</h2>
+    @{
+        var loginProviders = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+        if (loginProviders.Count == 0)
+        {
+            <div>
+                <p>
+                    There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                    for details on setting up this ASP.NET application to support logging in via external services.
+                </p>
+            </div>
+        }
+        else
+        {
+            @Html.ActionLink("other page", "UserInfo")
+            <div>
+                @ViewBag.Message
+            </div>
+
+            <div>
+                @if (ViewBag.Claims != null)
+                {
+                    @foreach (System.Security.Claims.Claim claim in ViewBag.Claims)
+                    {
+                        <span>@claim.Type - @claim.Value</span><br />
+                    }
+                }
+
+
+            </div>
+
+            <form asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                <div>
+                    <p>
+                        @foreach (var provider in loginProviders)
+                        {
+                            <button type="submit" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.Name</button>
+                        }
+                    </p>
+                </div>
+            </form>
+
+            <form asp-action="Logout" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                <div>
+                    <p>
+
+                            <button type="submit" name="provider" value="Logout" title="Log out">Logout</button>
+                    </p>
+                </div>
+            </form>
+
+            <form asp-action="Create" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                <div>
+                    <p>
+
+                        <button type="submit" name="provider" value="Create" title="Create">Create</button>
+                    </p>
+                </div>
+            </form>
+        }
+    }
+</body>
+</html>
