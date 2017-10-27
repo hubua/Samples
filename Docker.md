@@ -1,6 +1,5 @@
 # PowerShell
-* published DLLs should exist in the path specified as argument to COPY in `Dockerfile`;
-** note that paths other then `obj/Docker/publish` are in `.dockerignore`;
+* published DLLs should exist in the path specified as argument to COPY in `Dockerfile` (note that paths other then `obj/Docker/publish` are in `.dockerignore`);
 * cd to location of `Dockerfile`;
 * add image to local repository:
 ```
