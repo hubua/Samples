@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity", "Unity\Unity.csproj", "{9E4BC8CC-DCA2-4F35-A0FB-FE41E68C4318}"
 EndProject
@@ -32,12 +32,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "General", "General\General.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncREST", "AsyncREST\AsyncREST.csproj", "{54067E4B-5B80-447C-90CB-6E899EF3D005}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ASP.NET Core", "ASP.NET Core", "{36F0F067-4CFF-4883-87E9-0242C4279E7F}"
-	ProjectSection(SolutionItems) = preProject
-		ASPdotNETCore.md = ASPdotNETCore.md
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{0AD2F704-E441-406E-AE32-9C445BB119E5}"
+	ProjectSection(SolutionItems) = preProject
+		aspnetcore.md = aspnetcore.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRRealTime", "SignalRRealTime\SignalRRealTime.csproj", "{3138D3DA-BE50-443A-8EA4-1357ED318FC2}"
 EndProject
@@ -52,6 +50,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Algorithms", "Algorithms", 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalR", "SignalR", "{D99376D7-F532-4158-A1B5-67CA0B80AD5E}"
+	ProjectSection(SolutionItems) = preProject
+		SignalRRealTime\SignalR.md = SignalRRealTime\SignalR.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JWT", "JWT", "{4188D36F-CA36-47A8-84EF-1A092D0B2F5F}"
 	ProjectSection(SolutionItems) = preProject
@@ -65,7 +66,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{CA
 		Security.md = Security.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieAuthentication", "CookieAuthentication\CookieAuthentication.csproj", "{43680367-F9B7-4D61-B7AE-38D47BB191A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookieAuthentication", "CookieAuthentication\CookieAuthentication.csproj", "{43680367-F9B7-4D61-B7AE-38D47BB191A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{C9C1AC8D-727B-4DF2-91C8-E0C2FAF0A00B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{9F562521-8897-4D26-89DD-9ED1FF1813E0}"
+	ProjectSection(SolutionItems) = preProject
+		Docker.md = Docker.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockerWebApp", "DockerWebApp\DockerWebApp.csproj", "{C0E52FD4-A00D-4671-83FF-6FD89B82DD24}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0519C125-35CB-463C-A5D6-89021AB5EE29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +133,18 @@ Global
 		{43680367-F9B7-4D61-B7AE-38D47BB191A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43680367-F9B7-4D61-B7AE-38D47BB191A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43680367-F9B7-4D61-B7AE-38D47BB191A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C1AC8D-727B-4DF2-91C8-E0C2FAF0A00B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C1AC8D-727B-4DF2-91C8-E0C2FAF0A00B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C1AC8D-727B-4DF2-91C8-E0C2FAF0A00B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C1AC8D-727B-4DF2-91C8-E0C2FAF0A00B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0E52FD4-A00D-4671-83FF-6FD89B82DD24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0E52FD4-A00D-4671-83FF-6FD89B82DD24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0E52FD4-A00D-4671-83FF-6FD89B82DD24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0E52FD4-A00D-4671-83FF-6FD89B82DD24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0519C125-35CB-463C-A5D6-89021AB5EE29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0519C125-35CB-463C-A5D6-89021AB5EE29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0519C125-35CB-463C-A5D6-89021AB5EE29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0519C125-35CB-463C-A5D6-89021AB5EE29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -135,13 +159,15 @@ Global
 		{3285D74F-DAA4-450B-8B1F-B560510C3776} = {E277043B-D846-4C9E-AFD6-F1D010EB24A0}
 		{ED6B6CD0-9CA3-422E-98C5-DC63D75E4A0C} = {E277043B-D846-4C9E-AFD6-F1D010EB24A0}
 		{54067E4B-5B80-447C-90CB-6E899EF3D005} = {E277043B-D846-4C9E-AFD6-F1D010EB24A0}
-		{36F0F067-4CFF-4883-87E9-0242C4279E7F} = {0AD2F704-E441-406E-AE32-9C445BB119E5}
 		{3138D3DA-BE50-443A-8EA4-1357ED318FC2} = {D99376D7-F532-4158-A1B5-67CA0B80AD5E}
 		{D99376D7-F532-4158-A1B5-67CA0B80AD5E} = {0AD2F704-E441-406E-AE32-9C445BB119E5}
 		{4188D36F-CA36-47A8-84EF-1A092D0B2F5F} = {0AD2F704-E441-406E-AE32-9C445BB119E5}
 		{8EA0774B-BF51-42A2-B12B-81E55F5886F3} = {CADA7EB2-F28E-43A8-A18F-010034A81287}
 		{CADA7EB2-F28E-43A8-A18F-010034A81287} = {0AD2F704-E441-406E-AE32-9C445BB119E5}
 		{43680367-F9B7-4D61-B7AE-38D47BB191A9} = {CADA7EB2-F28E-43A8-A18F-010034A81287}
+		{9F562521-8897-4D26-89DD-9ED1FF1813E0} = {0AD2F704-E441-406E-AE32-9C445BB119E5}
+		{C0E52FD4-A00D-4671-83FF-6FD89B82DD24} = {9F562521-8897-4D26-89DD-9ED1FF1813E0}
+		{0519C125-35CB-463C-A5D6-89021AB5EE29} = {9F562521-8897-4D26-89DD-9ED1FF1813E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF651502-6BAF-4782-95B0-A12D846B2549}

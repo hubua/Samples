@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  DockerWA:
+    image: dock-wa-img
+    build:
+      context: ./DockerWebApp
+      dockerfile: Dockerfile

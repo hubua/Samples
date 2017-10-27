@@ -7,13 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CookieAuthentication
+namespace DockerWebApp
 {
     public class Startup
     {
-
-        public const string COOKIE_AUTH_SCHEME = "MyCookieAuthenticationScheme";
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,18 +22,6 @@ namespace CookieAuthentication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
-            services.AddAuthentication(COOKIE_AUTH_SCHEME).AddCookie(COOKIE_AUTH_SCHEME, options =>
-            {
-                options.AccessDeniedPath = "/Account/Forbidden/";
-                options.LoginPath = "/Account/Unauthorized/";
-            });
-
-            services.AddAuthentication().AddGoogle(googleOptions =>
-            {
-                googleOptions.ClientId = "496059977833-tbc8pt9qckim6kbg4hlph78socsflp62.apps.googleusercontent.com";
-                googleOptions.ClientSecret = "lp0TtjgbVT8pCmGuVsakoENZ";
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,8 +36,6 @@ namespace CookieAuthentication
             {
                 app.UseExceptionHandler("/Error");
             }
-
-            app.UseAuthentication();
 
             app.UseStaticFiles();
 

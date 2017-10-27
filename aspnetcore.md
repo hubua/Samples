@@ -9,10 +9,11 @@
 * https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run
 * https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction
 * https://www.linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos
-* https://blog.kloud.com.au/2016/05/31/building-dotnet-core-application-on-amazon-linux/
 * https://docs.asp.net/en/latest/publishing/linuxproduction.html
-* http://blog.earth-works.com/2013/04/12/how-to-get-networking-working-in-centos-under-hyper-v/
-* https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/best-practices-for-running-linux-on-hyper-v
+
+### Razor Pages
+
+* https://docs.microsoft.com/en-us/aspnet/core/mvc/razor-pages/?tabs=visual-studio
 
 ### DI
 

@@ -35,19 +35,19 @@ namespace GoogleAuthSample.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        
         public IActionResult ExternalLogin(string provider, string returnUrl = null)
         {
-            // Request a redirect to the external login provider.
             var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Home", new { returnUrl });
             var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
             return Challenge(properties, provider);
+            // Request goes to accounts.google.com/signin/oauth?client_id=496059977833
         }
 
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
         {
+            // After authenticating on Google request goes to localhost:61850/signin-google and then redirects to /Home/ExternalLoginCallback
             if (remoteError != null)
             {
                 ViewBag.Message = remoteError;
@@ -60,7 +60,17 @@ namespace GoogleAuthSample.Controllers
                 ViewBag.Message = "You are NOT logged in";
                 return View("Index");
             }
-            await AuthenticationHttpContextExtensions.SignInAsync(HttpContext, "MyCookieAuthenticationScheme", info.Principal);
+
+
+            HttpContext.Session.SetString("email", info.Principal.FindFirstValue(ClaimTypes.Email));
+
+            var claimsIdentity = new ClaimsIdentity(new List<Claim> { new Claim("name", "Rob") }, "CustomCookies"); // authenticationType must be non-null to have User.Identity.IsAuthenticated working
+            var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+            
+
+
+            await AuthenticationHttpContextExtensions.SignInAsync(HttpContext, "MyCookieAuthenticationScheme1", claimsPrincipal);
             return View("Index");
 
             // Sign in the user with this external login provider if the user already has a login.
@@ -86,8 +96,8 @@ namespace GoogleAuthSample.Controllers
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
-            
 
+            HttpContext.Session.Clear();
             await AuthenticationHttpContextExtensions.SignOutAsync(HttpContext);
 
             return RedirectToAction(nameof(HomeController.Index), "Home");
@@ -105,8 +115,7 @@ namespace GoogleAuthSample.Controllers
 
         public async Task<IActionResult> UserInfo()
         {
-            
-            ViewBag.Message = "You are logged in as: " + User.FindFirstValue(ClaimTypes.Email);
+            ViewBag.Message = $"User:{User.FindFirstValue(ClaimTypes.Email)}, Session:{HttpContext.Session.GetString("email")},";
             return View("UserInfo");
         }
 

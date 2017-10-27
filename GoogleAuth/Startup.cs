@@ -35,8 +35,9 @@ namespace GoogleAuthSample
                 .AddDefaultTokenProviders();
             
 
-            services.AddAuthentication("MyCookieAuthenticationScheme").AddCookie("MyCookieAuthenticationScheme", options =>
+            services.AddAuthentication("MyCookieAuthenticationScheme1").AddCookie("MyCookieAuthenticationScheme1", options =>
             {
+                options.Cookie.Name = "aaa";
                 options.AccessDeniedPath = "/Account/Forbidden/";
                 options.LoginPath = "/Account/Unauthorized/";
             });
@@ -47,6 +48,14 @@ namespace GoogleAuthSample
                 googleOptions.ClientId = Configuration["Google.ClientId"];
                 googleOptions.ClientSecret = Configuration["Google.ClientSecret"];
             });
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +69,8 @@ namespace GoogleAuthSample
             app.UseStaticFiles();
 
             app.UseAuthentication();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
