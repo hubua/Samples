@@ -9,6 +9,7 @@
 * https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run
 * https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction
 * https://www.linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos
+* https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands
 * https://docs.asp.net/en/latest/publishing/linuxproduction.html
 
 ### Razor Pages
