@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity", "Unity\Unity.csproj", "{9E4BC8CC-DCA2-4F35-A0FB-FE41E68C4318}"
 EndProject
@@ -73,6 +73,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{9F562521-8897-4D26-89DD-9ED1FF1813E0}"
 	ProjectSection(SolutionItems) = preProject
 		Docker.md = Docker.md
+		test_nginx.conf = test_nginx.conf
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockerWebApp", "DockerWebApp\DockerWebApp.csproj", "{C0E52FD4-A00D-4671-83FF-6FD89B82DD24}"

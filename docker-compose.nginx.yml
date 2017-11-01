@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  
+  dwa-service:
+    container_name: dwa-container
+    image: hubua/dwa
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  reverse-proxy-service:
+    container_name: reverse-proxy
+    image: nginx
+    ports:
+      - "4777:80"
+    volumes:
+      - ./test_nginx.conf:/etc/nginx/conf.d/default.conf
