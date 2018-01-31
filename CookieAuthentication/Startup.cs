@@ -31,12 +31,6 @@ namespace CookieAuthentication
                 options.AccessDeniedPath = "/Account/Forbidden/";
                 options.LoginPath = "/Account/Unauthorized/";
             });
-
-            services.AddAuthentication().AddGoogle(googleOptions =>
-            {
-                googleOptions.ClientId = "496059977833-tbc8pt9qckim6kbg4hlph78socsflp62.apps.googleusercontent.com";
-                googleOptions.ClientSecret = "lp0TtjgbVT8pCmGuVsakoENZ";
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

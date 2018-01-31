@@ -3,9 +3,7 @@
 @using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Http.Authentication
 @using Microsoft.AspNetCore.Identity
-@using GoogleAuthSample.Models
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@inject SignInManager<AppUser> SignInManager
 
 @{
     Layout = null;
@@ -17,43 +15,21 @@
     <title>Index</title>
 </head>
 <body>
-    <h2>Login with</h2>
+    
+    @Html.ActionLink("Index", "Index")
 
     <div>
         @ViewBag.Message
     </div>
 
     <div>
-        @{
-            if (ViewBag.Claims != null)
-            {
-                foreach (System.Security.Claims.Claim claim in ViewBag.Claims)
-                {
-                    <span>@claim.Type - @claim.Value</span><br />
-                }
-            }
-
+        <span>@($"User.Identity.IsAuthenticated: {User.Identity.IsAuthenticated}")</span>
+        @foreach (var claim in User.Claims)
+        {
+            <span>@claim.Type</span><span>@claim.Value</span><br />
         }
     </div>
 
-
-    <form asp-action="Logout" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
-        <div>
-            <p>
-
-                <button type="submit" name="provider" value="Logout" title="Log out">Logout</button>
-            </p>
-        </div>
-    </form>
-
-    <form asp-action="Create" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
-        <div>
-            <p>
-
-                <button type="submit" name="provider" value="Create" title="Create">Create</button>
-            </p>
-        </div>
-    </form>
 
 </body>
 </html>

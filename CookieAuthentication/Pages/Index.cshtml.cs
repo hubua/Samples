@@ -29,7 +29,9 @@ namespace CookieAuthentication.Pages
                 return Page();
             }
 
-            var claimsIdentity = new ClaimsIdentity(new List<Claim> { new Claim("name", Person.Name) }, "CustomCookies"); // authenticationType must be non-null to have User.Identity.IsAuthenticated working
+            var email = Person.Id + "email.com";
+
+            var claimsIdentity = new ClaimsIdentity(new List<Claim> { new Claim("name", Person.Name), new Claim("email", email) }, "CustomCookies"); // authenticationType must be non-null to have User.Identity.IsAuthenticated working
             var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
             await AuthenticationHttpContextExtensions.SignInAsync(HttpContext, Startup.COOKIE_AUTH_SCHEME, claimsPrincipal);
@@ -43,5 +45,7 @@ namespace CookieAuthentication.Pages
 
             return RedirectToPage("/Contact");
         }
+
+
     }
 }

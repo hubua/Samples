@@ -11,7 +11,9 @@ services:
   reverse-proxy-service:
     container_name: reverse-proxy
     image: nginx
+    #command:
+    #  - 'sudo iptables -A INPUT -p tcp --dport 443 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT' # bash -c
     ports:
-      - "4777:80"
+      - "80:80" #[external:internal]
     volumes:
       - ./test_nginx.conf:/etc/nginx/conf.d/default.conf

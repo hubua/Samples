@@ -7,13 +7,13 @@
 <hr />
 
 <div class="row">
-    <p>
-        Enter person name:
-    </p>
+    
     <div asp-validation-summary="All"></div>
+
     <form method="POST">
-        <div>Name: <input asp-for="Person.Name" /></div>
+        <div>Person Name: <input asp-for="Person.Name" /></div>
         <br />
+
         <button class="btn btn-default" type="submit">
             Sign In
         </button>

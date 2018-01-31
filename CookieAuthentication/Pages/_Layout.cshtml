@@ -36,7 +36,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#">@User.FindFirst("name")?.Value @($"Signed in: {User.Identity.IsAuthenticated}")</a>
+                        <a href="#">@($"Is authenticated: {User.Identity.IsAuthenticated} [{User.FindFirst("name")?.Value}]")</a>
                     </li>
                 </ul>
             </div>

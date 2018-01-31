@@ -12,5 +12,6 @@ namespace CookieAuthentication.Data
 
         [Required, StringLength(100)]
         public string Name { get; set; }
+
     }
 }
