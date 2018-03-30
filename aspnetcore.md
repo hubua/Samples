@@ -11,6 +11,7 @@
 * https://www.linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos
 * https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands
 * https://docs.asp.net/en/latest/publishing/linuxproduction.html
+* https://www.loggly.com/ultimate-guide/using-journalctl/
 
 ### Razor Pages
 

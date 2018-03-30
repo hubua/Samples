@@ -51,7 +51,7 @@ namespace GoogleAuthSample
 
             app.UseStaticFiles();
 
-            app.UseAuthentication();
+            app.UseAuthentication(); // Must come before UseMvc
 
             app.UseMvc(routes =>
             {
