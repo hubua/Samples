@@ -1,0 +1,11 @@
+﻿
+<h2>Index</h2>
+
+<span>User.Identity.IsAuthenticated : <b>@User.Identity.IsAuthenticated</b></span><br />
+@foreach (var claim in User.Claims)
+{
+    <span>@claim.Type : <b>@claim.Value</b></span><br />
+}
+
+
+

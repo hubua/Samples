@@ -14,6 +14,14 @@ namespace SQLite
         {
             optionsBuilder.UseSqlite("Data Source=blogging.db");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+			// optional
+            modelBuilder.Entity<Post>()
+                .HasOne(p => p.Blog)
+                .WithMany(b => b.Posts);
+        }
     }
 
     public class Blog

@@ -29,6 +29,7 @@ namespace SQLite.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     BlogId = table.Column<int>(nullable: false),
                     Content = table.Column<string>(nullable: true),
+                    CreateDate = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

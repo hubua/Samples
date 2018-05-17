@@ -4,13 +4,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using SQLite;
 using System;
 
 namespace SQLite.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    [Migration("20180417140905_Init")]
+    [Migration("20180417170110_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +40,8 @@ namespace SQLite.Migrations
                     b.Property<int>("BlogId");
 
                     b.Property<string>("Content");
+
+                    b.Property<DateTime>("CreateDate");
 
                     b.Property<string>("Title");
 
