@@ -3,15 +3,19 @@
 ## Links & Docs
 
 * https://www.microsoft.com/net/core#centos
-* https://www.nginx.com/resources/wiki/start/topics/tutorials/install/
-* http://www.hanselman.com/blog/PublishingAnASPNETCoreWebsiteToACheapLinuxVMHost.aspx
-* https://www.nginx.com/blog/tutorial-proxy-net-core-kestrel-nginx-plus/
-* https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run
 * https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction
+* https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run
+
+* https://www.nginx.com/resources/wiki/start/topics/tutorials/install/
+* https://www.nginx.com/blog/tutorial-proxy-net-core-kestrel-nginx-plus/
+
 * https://www.linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos
 * https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands
-* https://docs.asp.net/en/latest/publishing/linuxproduction.html
 * https://www.loggly.com/ultimate-guide/using-journalctl/
+
+* https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-centos-7
+* http://nginx.org/en/docs/http/configuring_https_servers.html
+* https://www.blinkingcaret.com/2017/02/01/using-openssl-to-create-certificates/
 
 ### Razor Pages
 
@@ -51,7 +55,10 @@ server {
     }
 }
 ```
-* restart nginx (nginx -s stop / nginx)
+* restart nginx
+ * `nginx -s stop` / `nginx`
+* autostart nginx
+ * `systemctl enable nginx` (if app starts later, nginx is not refreshing)
 
 
 ## Autostart web application
