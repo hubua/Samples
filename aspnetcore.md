@@ -75,7 +75,7 @@ Description=RMP Web App
 
 [Service]
 WorkingDirectory=/var/RMP
-ExecStart=/usr/local/bin/dotnet /var/RMP/RMP.WebUI.dll
+ExecStart=/usr/bin/dotnet /var/RMP/RMP.WebUI.dll
 Restart=always
 RestartSec=10 # Restart service after 10 seconds if dotnet service crashes
 SyslogIdentifier=dotnet-rmp
@@ -91,6 +91,8 @@ systemctl start kestrel-rmp.service
 systemctl status kestrel-rmp.service
 
 ## Tips
-`find / -name dotnet` find "donet" location
+`find / -name dotnet -type f` find "donet" location
+`/usr/bin/dotnet --version` get dotnet version
+`which dotnet` full path of command
 `journalctl -f`  like the Linux tail command so it continuously prints log messages as they are added
 `cat /var/log/nginx/error.log` nginx error log
