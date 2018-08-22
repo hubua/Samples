@@ -68,7 +68,9 @@ server {
 ## Autostart web application
 
 useradd -M --system dotnetwww
+
 nano /etc/systemd/system/kestrel-rmp.service
+
 ```
 [Unit]
 Description=RMP Web App
@@ -93,7 +95,11 @@ systemctl status kestrel-rmp.service
 ## Tips
 
 `find / -name dotnet -type f` find "donet" location
+
 `/usr/bin/dotnet --version` get dotnet version
+
 `which dotnet` full path of command
+
 `journalctl -f`  like the Linux tail command so it continuously prints log messages as they are added
+
 `cat /var/log/nginx/error.log` nginx error log
