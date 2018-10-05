@@ -40,7 +40,9 @@ docker rmi -f $(docker images -q)
 ```
 
 * view logs
-`docker logs {container_id}`
+```
+docker logs {container_id}
+```
 
 ## Docker Compose
 * Overview of Docker Compose https://docs.docker.com/compose/overview/
