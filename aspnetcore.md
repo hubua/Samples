@@ -96,9 +96,11 @@ systemctl status kestrel-rmp.service
 
 `find / -name dotnet -type f` find "donet" location
 
-`/usr/bin/dotnet --version` get dotnet version
+`/usr/bin/dotnet --version` dotnet version
 
-`which dotnet` full path of command
+`dotnet --info` runtime information
+
+`which dotnet` full path of executable
 
 `journalctl -f`  like the Linux tail command so it continuously prints log messages as they are added
 
