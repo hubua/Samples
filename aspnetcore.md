@@ -1,23 +1,30 @@
 # ASP.NET Core
 
-## Links & Docs
+## Docs & Guidelines
 
-* https://www.microsoft.com/net/core#centos
-* https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction
-* https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run
-* -
-* https://www.nginx.com/resources/wiki/start/topics/tutorials/install/
-* https://www.nginx.com/blog/tutorial-proxy-net-core-kestrel-nginx-plus/
-* -
-* https://www.linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos
-* https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands
-* -
-* https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-centos-7
-* http://nginx.org/en/docs/http/configuring_https_servers.html
-* https://www.blinkingcaret.com/2017/02/01/using-openssl-to-create-certificates/
-* -
-* https://www.loggly.com/ultimate-guide/using-journalctl/
-* https://andrewlock.net/fixing-nginx-upstream-sent-too-big-header-error-when-running-an-ingress-controller-in-kubernetes/
+* Deploy
+  * https://www.microsoft.com/net/core#centos
+  * https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction
+  * https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run
+* Nginx
+  * https://www.nginx.com/resources/wiki/start/topics/tutorials/install/
+  * https://www.nginx.com/blog/tutorial-proxy-net-core-kestrel-nginx-plus/
+* Firewall
+  * https://www.linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos
+  * https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands
+* SSL
+  * https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-centos-7
+  * http://nginx.org/en/docs/http/configuring_https_servers.html
+  * https://www.blinkingcaret.com/2017/02/01/using-openssl-to-create-certificates/
+* Logging
+  * https://www.loggly.com/ultimate-guide/using-journalctl/
+
+### Possible issues
+* Upstream sent too big header
+  * https://andrewlock.net/fixing-nginx-upstream-sent-too-big-header-error-when-running-an-ingress-controller-in-kubernetes/
+* Too many open files
+  * https://medium.com/@mshanak/soved-dotnet-core-too-many-open-files-in-system-when-using-postgress-with-entity-framework-c6e30eeff6d1
+  * https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/
 
 ### Razor Pages
 
@@ -49,13 +56,17 @@ server {
 
     location / {
         proxy_pass http://127.0.0.1:5000;
+	# proxy_buffering off;		# Uncomment to fix CLOSE_WAIT problem "Too many open files in system"
+        # proxy_read_timeout 7200;	# Uncomment to fix CLOSE_WAIT problem "Too many open files in system"
+	
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection keep-alive;
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
-		# proxy_buffers 8 16k; # Uncomment if error "upstream sent too big header"
-        # proxy_buffer_size 16k; # Uncomment if error "upstream sent too big header"
+	
+        # proxy_buffers 8 16k;		# Uncomment to fix error "Upstream sent too big header"
+        # proxy_buffer_size 16k;	# Uncomment to fix error "Upstream sent too big header"
     }
 }
 ```
