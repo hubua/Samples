@@ -26,17 +26,14 @@
   * https://medium.com/@mshanak/soved-dotnet-core-too-many-open-files-in-system-when-using-postgress-with-entity-framework-c6e30eeff6d1
   * https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/
 
-### Razor Pages
-
-* https://docs.microsoft.com/en-us/aspnet/core/mvc/razor-pages/?tabs=visual-studio
-
-### DI
-
-* https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
-* https://joonasw.net/view/aspnet-core-di-deep-dive
+### Best practices
+* Razor Pages
+  * https://docs.microsoft.com/en-us/aspnet/core/mvc/razor-pages/?tabs=visual-studio
+* DI
+  * https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
+  * https://joonasw.net/view/aspnet-core-di-deep-dive
 
 ## How to Install ASP.NET core on Linux
-
 * install SmartTTY or Windows bash shell
 * setup CentOS 7
   * enable networking
