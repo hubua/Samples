@@ -32,6 +32,9 @@
 * DI
   * https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
   * https://joonasw.net/view/aspnet-core-di-deep-dive
+  
+### Samples
+* https://github.com/dodyg/practical-aspnetcore/
 
 ## How to Install ASP.NET core on Linux
 * install SmartTTY or Windows bash shell
