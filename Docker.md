@@ -54,6 +54,11 @@ docker rmi -f $(docker images -q)
 docker logs {container_id}
 ```
 
+* save image to file:
+```
+docker save -o d:\image_name.docker {image}
+```
+
 ## Docker Compose
 * Overview of Docker Compose https://docs.docker.com/compose/overview/
 (Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.)
