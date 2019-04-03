@@ -116,3 +116,5 @@ systemctl status kestrel-rmp.service
 `journalctl -f`  like the Linux tail command so it continuously prints log messages as they are added
 
 `cat /var/log/nginx/error.log` nginx error log
+
+`sudo /opt/mssql/bin/mssql-conf set-sa-password` reset SQL SA password
