@@ -1,6 +1,16 @@
-﻿# PowerShell
-* published DLLs should exist in the path specified as argument to COPY in `Dockerfile` (note that paths other then `obj/Docker/publish` are in `.dockerignore`);
-* cd to location of `Dockerfile`;
+﻿# Docker
+  
+* Networking https://docs.docker.com/compose/networking/
+* Deploying changes https://docs.docker.com/compose/production/
+* Install compose https://docs.docker.com/compose/install/ (download with 'wget')
+
+## Preparation
+
+* Artifacts to publish (i.e. app DLLs) should exist in the path specified as argument to COPY in `Dockerfile` (note that paths other then `obj/Docker/publish` are in `.dockerignore`);
+* `cd` (better in PowerShell) to location of `Dockerfile`;
+
+## Images and Containers
+
 * add image to local repository:
 ```
 docker build -t docker-web-app:1.0 .
@@ -39,14 +49,22 @@ docker rm -f $(docker ps -a -q)
 docker rmi -f $(docker images -q)
 ```
 
+* view logs:
+```
+docker logs {container_id}
+```
+
+* save image to file:
+```
+docker save -o d:\image_name.docker {image}
+```
+
+## Docker Compose
+* Overview of Docker Compose https://docs.docker.com/compose/overview/
+(Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.)
+
 * docker-compose creates a private network between services described in docker-compose.yml and assings hostnames equal to service names
 ```
 docker-compose -f ".\docker-compose.nginx.yml" -p nginx_dwa_app up -d
 # note: -p is optional
 ```
-
-* Networking https://docs.docker.com/compose/networking/
-* Deploying changes https://docs.docker.com/compose/production/
-* Install compose https://docs.docker.com/compose/install/ (download with 'wget')
-
-
