@@ -5,17 +5,17 @@
 * https://www.microsoft.com/net/core#centos
 * https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction
 * https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run
-* -
+-
 * https://www.nginx.com/resources/wiki/start/topics/tutorials/install/
 * https://www.nginx.com/blog/tutorial-proxy-net-core-kestrel-nginx-plus/
-* -
+-
 * https://www.linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos
 * https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands
-* -
+-
 * https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-centos-7
 * http://nginx.org/en/docs/http/configuring_https_servers.html
 * https://www.blinkingcaret.com/2017/02/01/using-openssl-to-create-certificates/
-* -
+-
 * https://www.loggly.com/ultimate-guide/using-journalctl/
 * https://andrewlock.net/fixing-nginx-upstream-sent-too-big-header-error-when-running-an-ingress-controller-in-kubernetes/
 
