@@ -3,12 +3,12 @@ Accessing MongoDB from .NET
 
 ## Links & Docs
 
-- Tutorials
+- DB Tutorials
   - Overview https://www.tutorialspoint.com/mongodb/mongodb_overview.htm
   - Indexes https://docs.mongodb.com/getting-started/csharp/indexes/
   - Transactions with two-phase commits https://docs.mongodb.com/manual/tutorial/perform-two-phase-commits/
 
-- github.io csharp driver documentation
+- Driver documentation
   - Installation http://mongodb.github.io/mongo-csharp-driver/2.7/getting_started/installation/
   - Quick tour http://mongodb.github.io/mongo-csharp-driver/2.7/getting_started/quick_tour/
   - Implementing Polymorphism http://mongodb.github.io/mongo-csharp-driver/2.7/reference/bson/mapping/polymorphism/
@@ -43,6 +43,7 @@ db.createUser(
 )
 
 db.dropUser("admin")
+db.changeUserPassword("admin","<new_password>")
 ```
 
 2) turn authentication on
