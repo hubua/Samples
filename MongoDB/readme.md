@@ -42,6 +42,10 @@ db.createUser(
   }
 )
 
+// add 'root' role to be able to drop database from IDE
+db.grantRolesToUser('admin', [{ role: 'root', db: 'admin' }])
+
+// drop user and change password
 db.dropUser("admin")
 db.changeUserPassword("admin","<new_password>")
 ```
