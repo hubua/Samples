@@ -71,11 +71,12 @@ server {
 }
 ```
 * restart nginx
- * `nginx -s stop` / `nginx`
+  * `nginx -s stop` / `nginx`
 * autostart nginx
- * `systemctl enable nginx` (must allow port permission in SELinux next)
- * `yum install policycoreutils-python` (install SELinux management tool)
- * `semanage port --add --type http_port_t --proto tcp 5000` (add a record of the port to SELinux)
+  * `systemctl enable nginx` (must allow port permission in SELinux next)
+  * `yum install policycoreutils-python` (install SELinux management tool)
+  * `semanage port --add --type http_port_t --proto tcp 5000` (add a record of the port to SELinux)
+  * `systemctl status nginx`
 
 ## Autostart web application
 
