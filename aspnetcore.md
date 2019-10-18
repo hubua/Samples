@@ -75,13 +75,13 @@ server {
 * autostart nginx
  * `systemctl enable nginx` (must allow port permission in SELinux next)
  * `yum install policycoreutils-python` (install SELinux management tool)
- * `semanage port --add --type http_port_t --proto tcp 4123` (add a record of the port to SELinux)
+ * `semanage port --add --type http_port_t --proto tcp 5000` (add a record of the port to SELinux)
 
 ## Autostart web application
 
-useradd -M --system dotnetwww
+`useradd -M --system dotnetwww`
 
-nano /etc/systemd/system/kestrel-rmp.service
+`nano /etc/systemd/system/kestrel-rmp.service`
 
 ```
 [Unit]
