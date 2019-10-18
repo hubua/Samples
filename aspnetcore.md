@@ -73,8 +73,9 @@ server {
 * restart nginx
  * `nginx -s stop` / `nginx`
 * autostart nginx
- * `systemctl enable nginx` (if app starts later, nginx is not refreshing)
-
+ * `systemctl enable nginx` (must allow port permission in SELinux next)
+ * `yum install policycoreutils-python` (install SELinux management tool)
+ * `semanage port --add --type http_port_t --proto tcp 4123` (add a record of the port to SELinux)
 
 ## Autostart web application
 
