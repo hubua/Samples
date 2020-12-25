@@ -124,6 +124,7 @@ systemctl status kestrel-rmp.service
 ### Clear audit logs
 
 `sudo du -sch * --exclude=home`
+
 `sudo du -Sh | sort -rh | head -5`
 
 ```
