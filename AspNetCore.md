@@ -120,3 +120,16 @@ systemctl status kestrel-rmp.service
 `cat /var/log/nginx/error.log` nginx error log
 
 `sudo /opt/mssql/bin/mssql-conf set-sa-password` reset SQL SA password
+
+### Clear audit logs
+
+`sudo du -sch * --exclude=home`
+`sudo du -Sh | sort -rh | head -5`
+
+```
+sudo su
+rm /var/log/audit/*
+exit
+```
+
+
