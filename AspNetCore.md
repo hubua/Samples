@@ -43,6 +43,7 @@
 * install .NET Core
 * configure firewall
   * add rules for HTTP, HTTPS, port 80
+  * add rules for custom ports if any `sudo firewall-cmd --zone=public --add-port=8090/tcp --permanent`
 * install nginx
 * update `/etc/nginx/conf.d/default.conf`
 ```
@@ -52,23 +53,37 @@
 
 server {
     listen       80;
-    server_name  localhost; # or 172.22.199.136;
+    server_name  app1.mydomain.com www.app1.mydomain.com localhost;
 
     location / {
-        proxy_pass http://127.0.0.1:5000;
-	# proxy_buffering off;		# Uncomment to fix CLOSE_WAIT problem "Too many open files in system"
-        # proxy_read_timeout 7200;	# Uncomment to fix CLOSE_WAIT problem "Too many open files in system"
-	
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection keep-alive;
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
-	
-        # proxy_buffers 8 16k;		# Uncomment to fix error "Upstream sent too big header"
-        # proxy_buffer_size 16k;	# Uncomment to fix error "Upstream sent too big header"
+        proxy_pass          http://localhost:4321;
+        proxy_http_version  1.1;
+        
+        proxy_set_header    Upgrade $http_upgrade;
+        proxy_set_header    Connection keep-alive;
+        proxy_set_header    Host $host;
+        proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header    X-Forwarded-Proto $scheme;
+        
+        proxy_cache_bypass  $http_upgrade;
+        
+        # proxy_buffering off;      # Uncomment to fix CLOSE_WAIT problem "Too many open files in system"
+        # proxy_read_timeout 7200;  # Uncomment to fix CLOSE_WAIT problem "Too many open files in system"
+        
+        # proxy_buffers 8 16k;      # Uncomment to fix error "Upstream sent too big header"
+        # proxy_buffer_size 16k;    # Uncomment to fix error "Upstream sent too big header"
     }
 }
+
+server {
+    listen       80;
+    server_name  app2.mydomain.com;
+    
+    location / {
+        proxy_pass          http://localhost:4123;
+        proxy_http_version  1.1;
+    
+[...]
 ```
 * restart nginx
   * `nginx -s stop` / `nginx`
