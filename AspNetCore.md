@@ -115,9 +115,11 @@ WantedBy=multi-user.target
 
 ### Allow process to write to log or database file
 
-* `cd /var/log`
-* `mkdir RMP`
-* `chown -hR dotnetwww RMP`
+`cd /var/log`
+
+`mkdir RMP`
+
+`chown -hR dotnetwww RMP`
 
 ## Tips
 
