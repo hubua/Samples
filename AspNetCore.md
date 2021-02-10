@@ -77,6 +77,14 @@ server {
   * `yum install policycoreutils-python` (install SELinux management tool)
   * `semanage port --add --type http_port_t --proto tcp 5000` (add a record of the port to SELinux)
   * `systemctl status nginx`
+  
+## Start web application
+
+`sudo nohup dotnet NameZ.WebUI.dll &` start web-application user-session independently
+
+`ps -ef | grep NameZ` find previousely started application
+
+`sudo kill 2789` shutdown application
 
 ## Autostart web application
 
@@ -101,9 +109,15 @@ Environment=ASPNETCORE_ENVIRONMENT=Production
 WantedBy=multi-user.target
 ```
 
-systemctl daemon-reload
-systemctl start kestrel-rmp.service
-systemctl status kestrel-rmp.service
+`systemctl start kestrel-rmp.service`
+
+`systemctl status kestrel-rmp.service`
+
+### Allow process to write to log or database file
+
+* `cd /var/log`
+* `mkdir RMP`
+* `chown -hR dotnetwww RMP`
 
 ## Tips
 
