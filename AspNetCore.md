@@ -42,7 +42,7 @@
   * enable networking
 * install .NET Core
 * configure firewall
-  * add rules for HTTP, HTTPS, port 80
+  * add rules for HTTP (port 80) and/or HTTPS (port 443) `firewall-cmd --zone=public --add-service=http --permanent`
   * add rules for custom ports if any `sudo firewall-cmd --zone=public --add-port=8090/tcp --permanent`
 * install nginx
 * update `/etc/nginx/conf.d/default.conf`
