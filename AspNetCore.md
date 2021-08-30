@@ -16,6 +16,8 @@
   * https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-centos-7
   * http://nginx.org/en/docs/http/configuring_https_servers.html
   * https://www.blinkingcaret.com/2017/02/01/using-openssl-to-create-certificates/
+  * Issues with HSTS on Chrome https://superuser.com/questions/884997/my-chrome-jumps-to-non-existent-https-protocol (chrome://net-internals/#hsts)
+  * Issues with private networks and self-signed cert https://community.letsencrypt.org/t/certificates-for-hosts-on-private-networks/174/2
 * Logging
   * https://www.loggly.com/ultimate-guide/using-journalctl/
 
