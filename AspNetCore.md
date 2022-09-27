@@ -154,6 +154,8 @@ WantedBy=multi-user.target
 
 `sudo /opt/mssql/bin/mssql-conf set-sa-password` reset SQL SA password
 
+`sudo cat /var/log/messages` see error logs
+
 ### Clear audit logs
 
 `sudo du -sch * --exclude=home`
