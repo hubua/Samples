@@ -158,6 +158,8 @@ WantedBy=multi-user.target
 
 ### Clear audit logs (in case No space left on device)
 
+`sudo df -h`
+
 `sudo du -sch * --exclude=home`
 
 `sudo du -Sh | sort -rh | head -5`
