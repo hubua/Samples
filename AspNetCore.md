@@ -156,7 +156,7 @@ WantedBy=multi-user.target
 
 `sudo cat /var/log/messages` see error logs
 
-### Clear audit logs
+### Clear audit logs (in case No space left on device)
 
 `sudo du -sch * --exclude=home`
 
