@@ -114,12 +114,22 @@ server {
 Description=RMP Web App
 
 [Service]
-WorkingDirectory=/var/RMP
 ExecStart=/usr/bin/dotnet /var/RMP/RMP.WebUI.dll
-Restart=always
-RestartSec=10 # Restart service after 10 seconds if dotnet service crashes
-SyslogIdentifier=dotnet-rmp
 User=dotnetwww
+WorkingDirectory=/var/RMP
+
+# Restart service after 10 seconds if dotnet service crashes
+Restart=always
+RestartSec=10
+# ALTERNATIVELY
+# Restart on non-successful exits.
+#Restart=on-failure
+# Don't restart if we've restarted more than 3 times in 2 minutes.
+#StartLimitInterval=120
+#StartLimitBurst=3
+
+SyslogIdentifier=dotnet-rmp
+
 Environment=ASPNETCORE_ENVIRONMENT=Production
 
 [Install]
