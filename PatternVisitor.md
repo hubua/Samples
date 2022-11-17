@@ -1,4 +1,7 @@
-﻿using System;
+# Visitor pattern example
+
+```cs
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -77,3 +80,4 @@ namespace PatternVisitor
         }
     }
 }
+```
