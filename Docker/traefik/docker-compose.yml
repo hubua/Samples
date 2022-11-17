@@ -1,0 +1,61 @@
+version: '3.4'
+
+services:
+
+  reverse-proxy:
+    # The official v2 Traefik docker image
+    image: traefik
+    # Enables the web UI and tells Traefik to listen to docker
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:8000"
+     # - "--providers.docker.network=web"
+    #networks:
+    #  - web
+    ports:
+      # The HTTP port
+      - "9000:8000"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8080:8080"
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  whoami:
+    image: "traefik/whoami"
+    container_name: "simple-whoami1"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami1_r.rule=Host(`whoami1.localhost`)"
+      - "traefik.http.routers.whoami1_r.entrypoints=web"
+
+  whoami2:
+    image: "traefik/whoami"
+    container_name: "simple-whoami2"
+    command: --port 8090
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami2_r.rule=Host(`whoami2.localhost`)"
+      - "traefik.http.routers.whoami2_r.entrypoints=web"
+      - "traefik.http.services.whoami2_s.loadbalancer.server.port=8090"
+
+  wcs:
+    image: ${DOCKER_REGISTRY-}phs
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #ports:
+    #  - "4001:4000"
+    volumes:
+        - wcsvol:/app/DB
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wcs_r.rule=Host(`wcs.localhost`)"
+      - "traefik.http.routers.wcs_r.entrypoints=web"
+      - "traefik.http.services.wcs_s.loadbalancer.server.port=7000"
+
+volumes:
+  wcsvol:
