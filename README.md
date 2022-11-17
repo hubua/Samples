@@ -1,5 +1,6 @@
 # Docs & Samples
-.NET code docs and samples
+
+## Tips
 
 Count lines in cs:
 `dir -Recurse *.cs | Get-Content | Measure-Object -Line`
@@ -7,4 +8,6 @@ Count lines in cs:
 Size of cs:
 `dir -Recurse *.cs | measure Length -s`
 
-![This is an image](git-operations.png)
+## Git flow
+
+![Git flow](git-operations.png)
