@@ -20,6 +20,8 @@
   * Issues with private networks and self-signed cert https://community.letsencrypt.org/t/certificates-for-hosts-on-private-networks/174/2
 * Logging
   * https://www.loggly.com/ultimate-guide/using-journalctl/
+* Lightsail
+  * https://aws.amazon.com/blogs/compute/configuring-and-using-monitoring-and-notifications-in-amazon-lightsail/
 
 ### Possible issues
 * Upstream sent too big header
